@@ -1,0 +1,12 @@
+import pandas as pd
+df = pd.dataframe("locationOfTheDataSet.csv, .pdf, .xlsx, .docs, etc") -> creates dataframe
+df.head(6) -> gives first 6 rows of the dataset (default 5 by .head()) to understand data
+df.info() -> info about dtypes and non-null values help to understand that cleaning needed or not
+df.describe() -> statistic (count, mean, std, min, max) only for numerical cols
+df.isnull().sum() -> checking that there is any missing value gives sum of null values in cols
+df.shape -> gives dimensions of dataset as tuple of size 2 (rows, cols)
+df[['col1','col2']].head() -> multiple cols
+df.drop('col', axis = 0) -> drops out the col (0 = rows, 1 = cols)
+df.groupby() -> aggregates entries takes feature as param
+df.sort_values(by='col',ascending=False) -> perform sorting based on col which we pass
+df.corr() -> gives correlation matrix of numerical data
