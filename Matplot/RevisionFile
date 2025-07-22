@@ -1,0 +1,17 @@
+plt.subplot(figsize=(10,5)) -> give the figure size first in plt.figure or plt.subplot
+plt.scatter(x,y, s) -> scatter plot takes three arguments, x and y size of the points
+plt.plot(x, y, marker='o') -> plot with markers
+plt.plot(x, y, linestyle='--') -> plot with dashed lines
+plt.plot(x, y, color='red') -> plot with specific color
+xlabel('X-axis label') -> set x-axis label
+ylabel('Y-axis label') -> set y-axis label
+plt.title('Title of the plot') -> set title of the plot
+plt.legend(['label1', 'label2']) -> add legend to the plot
+plt.grid(True) -> add grid to the plot
+plt.savefig('filename.png') -> save the plot as an image file
+plt.show() -> display the plot
+plt.xlim(0, 10) -> set x-axis limits
+plt.ylim(0, 10) -> set y-axis limits
+plt.xticks(rotation=45) -> rotate x-axis tick labels
+plt.yticks(rotation=45) -> rotate y-axis tick labels
+plt.pie(sizes, labels, autopct='%1.1f%%') -> create a pie chart
