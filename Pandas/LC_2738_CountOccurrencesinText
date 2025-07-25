@@ -1,0 +1,48 @@
+Table: Files
+
++-------------+------+
+| Column Name | Type |
++-------------+------+
+| file_name   | varchar |
+| content     | varchar |
++-------------+------+
+This table contains file_name and content.
+
+Problem Statement:
+
+Write a solution to find the number of files that contain 'bull' as a substring in their content.
+Note that the substring is case sensitive.
+
+Return the number of files as count.
+
+The result format is in the following example.
+
+Example:
+
+Input:
+Files table:
+
++-------------+-----------------------------+
+| file_name   | content                     |
++-------------+-----------------------------+
+| topsecret.txt | I am a bull and I am strong |
+| project1.txt| The project name is beautiful |
+| lesson.sql  | Study the bull case         |
+| data.csv    | The word 'bull' is important|
+| notes.txt   | My notebook has a bullet point|
++-------------+-----------------------------+
+Output:
+
++-------+
+| count |
++-------+
+| 3     |
++-------+
+
+Solution : 
+import pandas as pd
+def count_occurences(df: pd.DataFrame) -> pd.DataFrame:
+  newdf = df[df['content'].str.contains("bull", case=True, na = False)]
+  n = len(newdf)
+  result = pd.DataFrame({'count' : [n]} )
+  return result
