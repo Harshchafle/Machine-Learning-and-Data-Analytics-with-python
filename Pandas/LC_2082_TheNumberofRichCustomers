@@ -1,0 +1,49 @@
+Table: Store
+
+Column Name	Type
+bill_id	int
+customer_id	int
+amount	int
+
+bill_id is the primary key for this table.
+Each row contains information about a bill, where customer_id is the ID of the customer who made the bill, and amount is the amount of the bill.
+
+A customer is considered rich if their total amount of bills is strictly greater than 500.
+Write an SQL query to report the number of rich customers.
+Return the result table in any order.
+The query result format is in the following example.
+Example 1:
+
+Input:
+Store table:
+| bill_id | customer_id | amount |
+| :------ | :---------- | :----- |
+| 6       | 1           | 549    |
+| 8       | 1           | 83     |
+| 4       | 2           | 39    |
+| 11      | 3           | 621    |
+| 13      | 3           | 79    |
+
+Output:
+| rich_count |
+| :--------- |
+| 2          |
+
+Explanation:
+Customer 1: Total amount = 549 + 83 = 632. (632 > 500, so rich)
+Customer 2: Total amount = 39. (39 <= 500, so not rich)
+Customer 3: Total amount = 621 + 79 = 700. (700 > 500, so rich)
+There are 2 rich customers (Customer 1 and Customer 3).
+
+3. Constraints
+1 <= bill_id <= 1000
+1 <= customer_id <= 1000
+1 <= amount <= 1000
+All bill_id values are unique.
+
+Solution : 
+import pandas as pd
+
+def methodandparams(df : pd.DataFrame):
+    richgroup = df.groupby('customer_id')['amount'].sum() # Assuming 'customer_id' not 'customed_id'
+    return  richgroup[richgroup > 500].count()

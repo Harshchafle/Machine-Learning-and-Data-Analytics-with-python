@@ -1,0 +1,207 @@
+## **Ultimate Interview Question Bank: Matplotlib Edition (Beginner to Intermediate)**
+
+> This set contains 150+ powerful questions carefully designed to help you crack Data Analyst or Data Scientist interviews that involve data visualization using Matplotlib.
+> 
+
+## **1. What is Data Visualization? Why Do We Use It?**
+
+1. What is data visualization?
+2. Why is data visualization better than reading raw data?
+3. What is the goal of data visualization?
+4. Name 3 fields where data visualization is used daily.
+5. What are some popular chart types?
+6. What does a dashboard typically contain?
+7. How can visualizing data reveal hidden patterns?
+8. What is the role of data visualization in business?
+9. What are some real-world uses of charts?
+10. Name three popular data visualization tools (not just Python).
+
+---
+
+## **2. Introduction to Matplotlib**
+
+1. What is Matplotlib?
+2. Who created Matplotlib?
+3. Why is Matplotlib popular in Python?
+4. How do you install Matplotlib?
+5. What is the standard way to import Matplotlib?
+6. What does `pyplot` mean in Matplotlib?
+7. What are the key components of a Matplotlib plot?
+8. What is a Figure in Matplotlib?
+9. What is an Axes?
+10. What is the difference between Axis and Axes?
+
+---
+
+## **3. Understanding pyplot**
+
+1. What is pyplot in Matplotlib?
+2. How is pyplot different from full Matplotlib?
+3. What is `plt.plot()` used for?
+4. What does `plt.show()` do?
+5. How do you save a figure using pyplot?
+6. How do you create a simple line graph with pyplot?
+7. Why is `plt.show()` necessary in scripts?
+8. What happens if you forget `plt.show()`?
+9. How do you avoid overlapping plots?
+10. Can we plot without pyplot?
+
+---
+
+## **4. Plotting Line Graphs**
+
+1. How do you plot a line graph?
+2. How do you plot two lines on the same graph?
+3. How do you change the line color?
+4. What argument is used for line style?
+5. What values can `linestyle` take?
+6. How do you add markers to a line?
+7. What are valid marker styles?
+8. How do you change the line thickness?
+9. How to plot a time series with dates on X-axis?
+10. Can you plot NumPy arrays directly?
+
+---
+
+## **5. Labels, Titles, Legends, Grids**
+
+1. How do you set the title of a graph?
+2. How to label the X-axis?
+3. How to label the Y-axis?
+4. Why do we need a legend?
+5. How do you create a legend?
+6. How do you change legend position?
+7. What are valid values for `loc` in `plt.legend()`?
+8. How do you add a grid to your graph?
+9. Can you customize grid lines?
+10. How to hide X or Y grid only?
+
+---
+
+## **6. Colors, Styles, Markers**
+
+1. How to use named colors in plots?
+2. Can we use HEX color codes?
+3. What is an RGB tuple in Matplotlib?
+4. What does `markerfacecolor` do?
+5. What does `markeredgecolor` do?
+6. How do you change marker size?
+7. How do you make a dashed red line with circle markers?
+8. Can you combine style, marker, and color in one line?
+9. How do you set default styles for all plots?
+10. How do you reset styling?
+
+---
+
+## **7. Bar Charts, Pie Charts, Histograms**
+
+1. How do you create a vertical bar chart?
+2. How to make a horizontal bar chart?
+3. How do you set bar color and edge color?
+4. What is a grouped bar chart?
+5. How do you plot grouped bars?
+6. How to stack bars on top of each other?
+7. How do you add values on top of bars?
+8. How to draw a pie chart?
+9. How do you add percentages to a pie chart?
+10. What is the `explode` parameter in pie charts?
+11. How to add a shadow effect to pie chart?
+12. What is a histogram?
+13. When should you use a histogram?
+14. How do you plot a histogram?
+15. What does the `bins` parameter control?
+16. How to change histogram color and transparency?
+17. How do you interpret histogram bars?
+18. What is frequency distribution?
+
+---
+
+## **8. Subplots and Layout Adjustments**
+
+1. What are subplots?
+2. What is the syntax of `plt.subplot()`?
+3. What’s the difference between `subplot` and `subplots()`?
+4. How to create 2x2 grid of subplots?
+5. How do you set figure size using `subplots()`?
+6. What is `tight_layout()` used for?
+7. What if subplots overlap?
+8. How to manually adjust subplot spacing?
+9. What does `wspace` and `hspace` mean?
+10. How do you share X or Y axis between subplots?
+11. How to set a single title for all subplots?
+
+---
+
+## **9. Saving Figures**
+
+1. How do you save a plot as an image?
+2. What file types can `savefig()` use?
+3. What does `dpi` mean?
+4. How to save high-resolution plots?
+5. What is `bbox_inches='tight'`?
+6. How to save without showing the plot?
+7. Can you save only part of a figure?
+8. How do you specify a save path?
+9. Can you save vector graphics (PDF, SVG)?
+10. How to save a figure from subplots?
+
+---
+
+## **10. Real-Life Project: Visualizing Sales Data**
+
+1. How to load a CSV with Pandas?
+2. How to read sales by month?
+3. How to group sales by product?
+4. How to plot monthly sales as a line chart?
+5. How to plot product sales as bar chart?
+6. How to make a pie chart of market share?
+7. How to visualize price range with histogram?
+8. How to arrange all graphs in subplots?
+9. How to save the final figure?
+10. What is storytelling in visualization?
+11. How can layout affect interpretation?
+
+---
+
+## **11. Interview Questions (Advanced)**
+
+1. What are common errors in Matplotlib?
+2. Why use pyplot instead of full object-oriented API?
+3. When would you use object-oriented plotting?
+4. Difference between `ax.plot()` and `plt.plot()`?
+5. What is the role of `fig, ax = plt.subplots()`?
+6. How can you customize ticks?
+7. What are ticks and tick labels?
+8. How to rotate X-axis labels?
+9. How to hide axis completely?
+10. How to add annotation or text on a graph?
+11. What are gridlines and why important?
+12. What does `plt.xticks()` do?
+13. How do you style fonts in titles or labels?
+14. How do you create multi-page plots?
+15. What is the benefit of vector vs raster formats?
+16. How can you plot real-time (live) data?
+17. What is interactive mode in Matplotlib?
+18. How do you handle large datasets in plots?
+19. What is `figure()` and why would you use it?
+20. What’s the difference between interactive and script mode?
+21. How to set global plot settings?
+22. Can you embed plots in Tkinter or Flask apps?
+23. How to draw plots in Jupyter Notebook inline?
+24. What’s `%matplotlib inline`?
+25. Difference between `plt.axis()` and `plt.axes()`?
+26. What are some alternatives to Matplotlib?
+27. Why do some plots look blurry?
+28. How to improve plot resolution?
+29. How to control aspect ratio?
+30. How do you create a custom color palette?
+31. Can you plot on existing axes?
+32. What does `ax.set()` do?
+33. What is `figure.add_subplot()`?
+34. How to invert an axis?
+35. Can you create animations with Matplotlib?
+36. What’s the use of `ax.text()`?
+37. How to draw vertical/horizontal lines on plots?
+38. What is a twin axis and how to create it?
+39. How do you combine bar and line in one plot?
+40. What makes a plot visually effective in presentations?

@@ -1,0 +1,3 @@
+What is Trackio?
+-> it is an Open source Python Library that let ustrack any metrics and visualize them using a local Gradio dashboard.
+-> We can also synv this dashboard to HuggingFace Spaces, which means we can then share the dashboard with other users with simply by sharing URL. since space can be private or Public, this means we can share the dashboard publicaly  or just member of our HuggingFace organization.

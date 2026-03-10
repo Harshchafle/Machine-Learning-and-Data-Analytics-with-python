@@ -1,0 +1,214 @@
+# import pandas as pd
+df = pd.dataframe("locationOfTheDataSet.csv, .pdf, .xlsx, .docs, etc") -> creates dataframe
+df.head(6) -> gives first 6 rows of the dataset (default 5 by .head()) to understand data
+df.info() -> info about dtypes and non-null values help to understand that cleaning needed or not
+df.describe() -> statistic (count, mean, std, min, max) only for numerical cols
+df.isnull().sum() -> checking that there is any missing value gives sum of null values in cols
+df.shape -> gives dimensions of dataset as tuple of size 2 (rows, cols)
+df[['col1','col2']].head() -> multiple cols
+df.drop('col', axis = 0) -> drops out the col (0 = rows, 1 = cols)
+df.groupby() -> aggregates entries takes feature as param
+df.sort_values(by='col',ascending=False) -> perform sorting based on col which we pass
+df.corr() -> gives correlation matrix of numerical data
+<<<<<<< HEAD
+
+
+###############################################################
+Key Pandas DataFrame Functions (Methods) & Attributes ->
+Here's a breakdown by common data manipulation tasks ->
+
+I. Data Inspection and Overview ->
+
+.head(n=5) -> Returns the first n rows.
+
+.tail(n=5) -> Returns the last n rows.
+
+.info() -> Prints a concise summary of the DataFrame, including data types, non-null values, and memory usage.
+
+.describe() -> Generates descriptive statistics of numerical columns (count, mean, std, min, max, quartiles). Can include non-numeric columns with include='all'.
+
+.shape (attribute) -> Returns a tuple representing the dimensionality (rows, columns).
+
+.size (attribute) -> Returns the total number of elements (rows * columns).
+
+.columns (attribute) -> Returns an Index of the column labels.
+
+.index (attribute) -> Returns the Index (row labels) of the DataFrame.
+
+.dtypes (attribute) -> Returns a Series with the data type of each column.
+
+.empty (attribute) -> Returns True if the DataFrame is empty, False otherwise.
+
+.values (attribute) -> Returns a NumPy representation of the DataFrame's data.
+
+.ndim (attribute) -> Returns the number of array dimensions (always 2 for a DataFrame).
+
+.axes (attribute) -> Returns a list of the row and column axes labels.
+
+II. Selection and Indexing ->
+
+df['column_name'] -> Selects a single column (returns a Series).
+
+df[['col1', 'col2']] -> Selects multiple columns (returns a DataFrame).
+
+.loc[] -> Label-based indexing for selecting rows and columns.
+
+df.loc[row_label, col_label]
+
+df.loc[ ->, 'col_name'] (all rows, specific column)
+
+df.loc[df['col'] > 10, ['col1', 'col2']] (conditional selection)
+
+.iloc[] -> Integer-location based indexing for selecting rows and columns.
+
+df.iloc[row_index, col_index]
+
+df.iloc[0 ->5, 0 ->2] (slicing rows and columns by position)
+
+.at[] -> Fast label-based scalar accessor (for single cell).
+
+.iat[] -> Fast integer-location based scalar accessor (for single cell).
+
+.isin(values) -> Checks whether each element in the DataFrame is contained in values.
+
+.query(expr) -> Filters the DataFrame using a boolean expression (string-based query).
+
+III. Data Cleaning and Handling Missing Data ->
+
+.isnull() / .isna() -> Returns a boolean DataFrame indicating missing (NaN) values.
+
+.notnull() / .notna() -> Returns a boolean DataFrame indicating non-missing values.
+
+.dropna(axis=0, how='any', inplace=False) -> Removes rows or columns with missing values.
+
+axis=0 (rows, default), axis=1 (columns)
+
+how='any' (drop if any NaN), how='all' (drop if all NaN)
+
+inplace=True modifies the DataFrame directly.
+
+.fillna(value, method=None, inplace=False) -> Fills missing values with a specified value or using a method (e.g., 'ffill' for forward fill, 'bfill' for backward fill).
+
+.replace(to_replace, value) -> Replaces specified values in the DataFrame.
+
+IV. Data Manipulation and Transformation ->
+
+.astype(dtype) -> Converts columns to a specified data type.
+
+.rename(mapper=None, index=None, columns=None, inplace=False) -> Renames index or column labels.
+
+.drop(labels, axis=0, inplace=False) -> Drops specified labels from rows or columns.
+
+.drop_duplicates(subset=None, keep='first', inplace=False) -> Removes duplicate rows.
+
+subset -> columns to consider for duplicates.
+
+keep -> 'first', 'last', or False (drop all duplicates).
+
+.apply(func, axis=0) -> Applies a function along an axis of the DataFrame (row-wise or column-wise).
+
+.applymap(func) (Deprecated in modern Pandas for element-wise application; .map() on Series or direct NumPy operations are preferred) -> Applies a function element-wise to the DataFrame.
+
+.assign(**kwargs) -> Assigns new columns to a DataFrame.
+
+.pivot(index, columns, values) -> Reshapes data based on column values.
+
+.pivot_table(values, index, columns, aggfunc='mean') -> Creates a spreadsheet-style pivot table.
+
+.melt(id_vars, value_vars) -> Unpivots a DataFrame from wide to long format.
+
+.stack() -> "Stacks" the columns into rows (creates a MultiIndex Series).
+
+.unstack() -> "Unstacks" a level of the index into columns.
+
+V. Grouping and Aggregation ->
+
+.groupby(by, axis=0) -> Groups DataFrame using a mapper or by a Series of columns.
+
+Common aggregations after groupby() -> .sum(), .mean(), .median(), .min(), .max(), .count(), .size(), .std(), .var(), .agg(), .transform(), .apply().
+
+.agg(func) / .aggregate(func) -> Applies one or more aggregation functions to a DataFrame or grouped object.
+
+.transform(func) -> Performs a group-wise transformation (returns a Series/DataFrame of the same shape as the original).
+
+.value_counts() (Series method, often used on a DataFrame column) -> Returns a Series containing counts of unique values.
+
+VI. Merging, Joining, and Concatenating ->
+
+pd.merge(left, right, on=None, how='inner') -> Combines DataFrames based on common columns or indices (like SQL JOINs).
+
+how -> 'inner', 'outer', 'left', 'right'.
+
+df.join(other, on=None, how='left') -> Combines DataFrames based on index (or a key column) (similar to merge).
+
+pd.concat(objs, axis=0) -> Concatenates Pandas objects along a particular axis (rows or columns).
+
+VII. Sorting ->
+
+.sort_values(by, axis=0, ascending=True, inplace=False) -> Sorts by the values of one or more columns.
+
+.sort_index(axis=0, level=None, ascending=True, inplace=False) -> Sorts by index labels.
+
+VIII. Mathematical and Statistical Operations ->
+
+.sum(axis=0) -> Sum of values.
+
+.mean(axis=0) -> Mean of values.
+
+.median(axis=0) -> Median of values.
+
+.min(axis=0) -> Minimum value.
+
+.max(axis=0) -> Maximum value.
+
+.std(axis=0) -> Standard deviation.
+
+.corr() -> Computes pairwise correlation of columns.
+
+.cov() -> Computes pairwise covariance of columns.
+
+.rank(axis=0, method='average') -> Computes numerical data ranks.
+
+.diff(periods=1, axis=0) -> First discrete difference of element.
+
+.pct_change(periods=1) -> Percentage change.
+
+.clip(lower, upper) -> Trim values at input thresholds.
+
+.round(decimals) -> Rounds to a variable number of decimal places.
+
+.abs() -> Absolute numerical value of each element.
+
+IX. Time Series Functionality ->
+
+pd.to_datetime() -> Converts argument to datetime objects.
+
+.resample(rule) -> Resamples time-series data.
+
+.asfreq(freq) -> Converts time series to specified frequency.
+
+X. Input/Output (often pd.read_... and df.to_...)
+
+pd.read_csv(filepath_or_buffer) -> Reads a CSV file into a DataFrame.
+
+pd.read_excel(io) -> Reads an Excel file into a DataFrame.
+
+pd.read_sql(sql_query, con) -> Reads SQL query or database table into a DataFrame.
+
+df.to_csv(path_or_buf) -> Writes DataFrame to a CSV file.
+
+df.to_excel(excel_writer) -> Writes DataFrame to an Excel file.
+
+df.to_json(path_or_buf) -> Writes DataFrame to a JSON file.
+
+df.to_sql(name, con) -> Writes DataFrame to a SQL table.
+
+XI. Plotting ->
+
+.plot() -> Makes plots of DataFrame columns. This is a wrapper around Matplotlib.
+
+df.plot.line(), df.plot.bar(), df.plot.hist(), df.plot.scatter(), etc.
+=======
+pd.merge(df1, df2, left_on='ForeignKey', right_on='PrimaryKey', how='left)
+df.transform('max') / df.transform('min)
+pd.pivot_table(df, index='column', values=['clo1','col2'], aggfunc='min,max,cout')   -> returns df and aggregates long data into wide format

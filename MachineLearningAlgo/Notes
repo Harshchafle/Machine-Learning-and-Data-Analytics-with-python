@@ -1,0 +1,407 @@
+************* 100 Days of Machine Learning – CampusX **************
+
+DAY 1: WHAT IS MACHINE LEARNING?
+
+Machine Learning is about building programs that learn patterns from data instead of being explicitly programmed with rules.
+​
+A typical ML system :  input data → learning algorithm → model → predictions/decisions.
+How ML differs from traditional programming
+Traditional :  programmer writes rules + data → outputs.
+ML : programmer supplies data + outputs (labels) → algorithm learns the rules (model).
+​
+Useful when rules are too complex or unknown (e.g., image recognition, speech).
+Typical ML workflow (high-level mental model)
+Data collection.
+Data cleaning and preprocessing.
+Feature selection/engineering.
+Model selection (choose algorithm).
+Training (fit model to training data).
+Evaluation (check performance on unseen data).
+Deployment (use model in real system).
+Email spam detection.
+Recommendation systems (YouTube, Netflix).
+Medical diagnosis and fraud detection.
+​
+ML = learning from data, not hard-coded logic.
+Success depends strongly on data quality, not just algorithms.
+Think in terms of “input → model → output” rather than “if–else rules”.
+____________________________________________________________________________________________________________________________________________________________
+
+DAY 2: AI VS ML VS DL
+​
+Artificial Intelligence (AI)
+Broad field : any technique that enables computers to mimic human intelligence (reasoning, planning, learning, perception).
+​
+Includes rule-based systems, search, planning, expert systems, ML, etc.
+
+(ML) -> Subset of AI focused specifically on learning from data.
+	Model discovers patterns and relationships automatically.
+(DL) -> Subset of ML using neural networks with many layers (deep architectures).
+Especially good for images, audio, text, where raw features are complex.
+
+DL ⊂ ML ⊂ AI.
+
+Not every AI system uses ML; not every ML system uses deep learning.
+
+When to use what :
+Rule-based AI: clear rules, low complexity.
+ML : structured/tabular data, moderate complexity.
+DL : large amounts of data (images, audio, text) + higher computation budget.
+
+Don’t call everything “AI”; be precise: ML vs DL vs rule-based.
+Deep Learning doesn’t replace ML; it’s a powerful specialization.
+____________________________________________________________________________________________________________________________________________________________
+
+DAY 3: TYPES OF MACHINE LEARNING
+​
+1. Supervised Learning
+Definition: model learns from labeled data (input X, known output y).
+Goal: learn mapping
+f : X → y
+f : X → y to predict y for new X.
+Regression : predict a continuous value (house price, salary).
+Classification : predict a discrete category (spam/ham, disease/no disease).
+​
+
+2. UNSUPERVISED LEARNING
+Definition : model learns structure in unlabeled data (only X, no y).
+Goals:
+Clustering (group similar points).
+Dimensionality reduction (compress features).
+Examples: customer segmentation, grouping documents.
+
+3. SEMI-SUPERVISED LEARNING
+Mix of small labeled data + large unlabeled data.
+Useful when labeling is expensive but raw data is abundant.
+
+4. REINFORCEMENT LEARNING
+Agent interacts with environment, gets rewards, and learns a policy to maximize cumulative reward.
+​
+Examples: game-playing agents, robotics, recommendation strategy.
+
+Supervised: “I have answers; learn to mimic them.”
+Unsupervised: “No answers; find patterns.”
+RL: “Learn by trial-and-error with rewards.”
+
+____________________________________________________________________________________________________________________________________________________________
+
+DAY 4: ML WORKFLOW / PIPELINE OVERVIEW​
+
+Overall pipeline steps
+Problem definition : what are we trying to predict and why.
+1. Data collection: from files, databases, APIs, etc.
+2. Data cleaning and preprocessing.
+3. Train–test (and possibly validation) split.
+4. Model training.
+5. Model evaluation.
+6. Model deployment + monitoring.
+7. Data preprocessing highlights
+8. Handling missing values (drop vs impute).
+9. Fixing outliers when necessary.
+10. Encoding categorical variables.
+11. Feature scaling when required.
+12. Split strategy
+13. Train set: used to fit model.
+14. Test set: held out to measure generalization.
+15. Sometimes validation set for tuning hyperparameters.
+
+ALWAYS THINK IN TERMS OF A SYSTEM : **DATA** → **PROCESSING** → **MODEL** → **METRIC** → **DECISION**.
+
+NOTE : DON’T JUMP TO ALGORITHMS BEFORE UNDERSTANDING THE DATA AND PROBLEM.
+	   ML is not just about algorithms; the pipeline and data handling are just as important.
+____________________________________________________________________________________________________________________________________________________________
+
+DAY 5: BASIC MATH / PREREQUISITES (LINEAR ALGEBRA FOCUS)​
+
+OBJECTS
+Scalar  : single number.
+Vector : 1D array of numbers (features for one sample).
+Matrix : 2D array of numbers (dataset: rows = samples, columns = features).
+
+X : matrix of shape (n_samples, n_features).
+y : vector of targets of length n_samples.
+
+OPERATIONS USED IN ML
+1.	Vector addition and scalar multiplication.
+2.	Matrix–vector product: used in linear models
+3.	Transpose : used for gradients and normal equations.
+4.	Many ML algorithms can be seen as linear algebra operations:
+5.	Linear regression:
+6.	Gradient descent updates written as vector operations.
+7.	focus on : Shapes (dimensions) of matrices/vectors.
+8.	What happens when you multiply them.
+9.	How models operate on entire batches using matrix operations.
+
+1.	Batch Learning
+2.	Online Learning
+
+____________________________________________________________________________________________________________________________________________________________
+
+DAY 6: BASIC MATH / PREREQUISITES (STATISTICS / PROBABILITY INTRO)
+
+MEAN : AVERAGE VALUE OF A FEATURE
+MEDIAN : MIDDLE VALUE (ROBUST TO OUTLIERS).
+MODE : MOST FREQUENT VALUE.
+VARIANCE AND STANDARD DEVIATION : SPREAD OF DATA.
+
+DISTRIBUTIONS (HIGH LEVEL)
+	1. Normal distribution : bell curve, symmetric around mean.
+	2. Skewed distributions: long tail on one side (common in real data).
+
+Why stats matter for ML
+	1. Helps understand data (EDA).
+	2. Helps choose transformations (log, scaling, etc.).
+	3. Helps interpret model assumptions (e.g., linear regression).
+	4. Probability basics
+	5. Event, probability of an event.
+
+1.	Insance Based learning
+
+2.	Model Based Learning
+____________________________________________________________________________________________________________________________________________________________
+
+Day 7 : Challenges in ML
+
+1.	Data Collection
+	1. Fetch from API
+	2. Web Scraping
+
+2. Insufficient Data / Labelled Data
+	Unneccessary effictiveness : The algorithm which is not good can perform good if we train it for large variation of data rather than the best algo on less data.
+
+3. Non Representative Data
+	Sampling Noise / Sampling Bias : Wrong Model fitting if we used less data for training and if more data is added then it might happen that the model shoul fit differently to get predictions correct.
+
+
+4. Poor Quality Data
+	
+5. Irrelevant Features
+	Feature Engineering( Splitting or Combining features )
+
+6. Overfitting
+	Memorization
+	Bad result on testing only
+
+7. Underfitting
+ 	Bad result on training and testing
+
+8. Software Integration
+
+9. Offline Learning
+
+10. Cost Involved
+
+____________________________________________________________________________________________________________________________________________________________
+
+Day 8 : Applications ML
+
+1.	Retail - Amazon / Big-Bazar
+	Tag Line : "If you are not paying for the product, then you are the product".
+
+
+2. Banking And Finance
+	To match the person to whom provide loan or not.
+	
+
+3. Transport - OLA
+	Demand and Supply
+
+4. Manufacturing - TESLA
+
+
+5. Consumer - Internet - Twitter
+
+
+____________________________________________________________________________________________________________________________________________________________
+
+Day 9 : MLDL Lifecycles
+
+1.	Frame the Problem.
+2.	Gather the Data.
+3.	Data Preprocessing.
+4.	Exploratory Data Analysis.
+5.	Feature Engineering and Selection.
+6.	Model Training, Evaluation and Selection.
+7.	Model Deployment.
+8.	Testing.
+9.	Optimize.
+
+____________________________________________________________________________________________________________________________________________________________
+
+Day 10 : Job Roles
+
+	DE, DA, DS 
+	Website for Job : AngelList (https://wellfound.com/)
+
+1. Data Engineer
+
+1.	Scrape Data from the given sources.
+2.	Move/Store the data in optimal servers/warehouses.
+3.	Build data pipelines/APIs for easy access to thedata.
+4.	Handle databases/data warehouses.
+
+Skills Required
+1.	Strong grasp of algorithms and data structures
+2.	Programming Languages (Java/R/Python/Scala) and script writing
+3.	Advanced DBMS's
+4.	BIG DATA Tools (Apache Spark, Hadoop, Apache, Kafka, Apache Hive)
+5.	Cloud Platforms (Amazon Web Services, Google Cloud Platform)
+6.	Distributed Systems
+7.	Data Pipelines
+
+2. Data Analyst
+
+Responsibilities of a Data Analyst
+
+1.	· Cleaning and organizing Raw data.
+2.	· Analyzing data to derive insights.
+3.	· Creating data visualizations.
+4.	· Producing and maintaining reports.
+5.	· Collaborating with teams/colleagues based on the
+6.	insight gained.
+7.	· Optimizing data collection procedures
+
+Skills
+
+1.	· Statistical Programming
+2.	· Programming Languages (R/SAS/Python)
+3.	· Creative and Analytical Thinking
+4.	· Business Acumen - Medium to High preferred
+5.	· Strong Communication Skills.
+6.	· Data Mining, Cleaning, and Munging
+7.	· Data Visualization
+8.	· Data Story Telling
+9.	· SQL
+10.	· Advanced Microsoft Excel
+
+3. Data Scientist
+
+"A data scientist is someone who is better at statistics than any software engineer and better at software engineering than any statistician".
+
+
+4. ML Engineer
+
+Responsibilities
+
+1.	· Deploying machine learning models to production ready environment
+2.	· Scaling and optimizing the model for production
+3.	· Monitoring and maintenance of deployed models
+
+Skills
+
+1.	. Mathematics
+2.	· Programming Languages (R/Python/Java/Scala mainly)
+3.	. Distributed Systems
+4.	. Data model and evaluation
+5.	· Machine Learning models
+6.	· Software Engineering & Systems design
+
+____________________________________________________________________________________________________________________________________________________________
+
+Day 11 : Tensors
+
+1.	Data Structure to store data.
+2.	0D - Tensor : Scalar
+3.	1D - Tensor : Vector
+4.	2D - Tensor : Matrix
+5.	ND - Tensors
+6.	Rank, Axes, Shapes
+7.	3D - Tensor (NLP vectorization)
+8.	4D - Tensor (Image Processing)
+9.	5D - Tensor (Video Processing)
+
+____________________________________________________________________________________________________________________________________________________________
+
+Day 12 : Anaconda, Google colab, Kaggle, Spyder
+____________________________________________________________________________________________________________________________________________________________
+
+Day 13 : End - to - End Toy Project
+
+
+Steps : 
+	0. Preprocessing + EDA + feature selection
+	1. Extract input and output columns
+	2. Scale the values
+	3. train_test_split
+	4. train model
+	5. evaluate model / model selection
+	6. Deploy model
+
+Load Data
+import numpy as np
+import pandas as pd
+df = pd.read_csv('file_path.csv')
+df.head()
+df.shape
+df = df.iloc[:, 1:]
+
+Visualize data
+import matplotlib.pyplot as plt
+plt.scatter(df['cgpa'], df['iq'], c = df['placement'])
+
+Input, output extraction
+X = df.iloc[:, 0:2]
+y = df.iloc(:, -1]
+
+Splitting of data for training and testing
+from sklearn.model_selection import train_test_split
+X_train, y_train, X_test, y_test = train_test_split(X_train, y_train, test_size = 0.1)
+
+Scaling values
+from sklearn.preprocessing import StandardScaler
+scaler = StandardScaler()
+X_train = scaler.fit_transform(X_train)
+X_test = scaler.fit_transform(X_test)
+
+Model training
+from sklearn.linear_model import LogisticRegression
+clf.fit(X_train, y_train)
+
+y_pred = clf.predict(X_test)
+
+Evaluation of model
+from sklearn.metrics import accuracy_score
+acccuracy = accuracy_score(y_pred, y_test)
+
+Visualize decision boundaries
+from mlxtend.plotting import plot_decision_regions
+plot_decision_regions((X_train, y_train.values, clf = clf, legend = 2)
+
+make model pickle file
+import pickle
+pickle.dump(clf, open('model.pkl', 'wb'))
+
+then it will be integrated with website and deployed through GCP, AWS, VERCEL,etc
+
+____________________________________________________________________________________________________________________________________________________________
+
+Day 14 : framing ML problem
+
+
+1.	Business problem to ML problem
+2. Type of problem
+3. Current Solutions
+4. Getting Data
+5. Metrics to measure
+6. Online VS Batch learning
+7. Check Assumptions
+
+____________________________________________________________________________________________________________________________________________________________
+
+Day 15 : Working with csv files
+
+Gathering data :
+	1. CSV
+	2. json / sql
+	3. fetch API
+ 	4. Webscraping
+
+CSV : 
+⦁		The CSV file format is a popular format supported by many machine learning frameworks. The format is variously referred to "comma-separated values" or "character-separated values."
+⦁		A CSV file stores tabular data (numbers and text) in plain text form. A CSV file consists of any number of records, separated by line breaks of some kind. Each record consists of fields, separated by a literal comma. In some regions, the separator might be a semi-colon.
+⦁		Typically, all records have an identical number of fields, and missing values are represented as nulls or empty strings. There are a number of ways to load a CSV file in Python. 
+⦁		learnt params of pd.read_csv()
+
+
+
+

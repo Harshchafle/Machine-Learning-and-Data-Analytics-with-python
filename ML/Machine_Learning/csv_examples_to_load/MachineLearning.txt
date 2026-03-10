@@ -1,0 +1,183 @@
+# \*\*\*\*\*\*\*\*\*\*\*\*\* 100 Days of Machine Learning – CampusX \*\*\*\*\*\*\*\*\*\*\*\*\*\*
+
+DAY 1: WHAT IS MACHINE LEARNING?
+================================
+
+KEY IDEAS
+---------
+Machine Learning is about building programs that learn patterns from data instead of being explicitly programmed with rules.
+​
+A typical ML system :  input data → learning algorithm → model → predictions/decisions.
+How ML differs from traditional programming
+Traditional :  programmer writes rules + data → outputs.
+ML : programmer supplies data + outputs (labels) → algorithm learns the rules (model).
+​
+Useful when rules are too complex or unknown (e.g., image recognition, speech).
+Typical ML workflow (high-level mental model)
+Data collection.
+Data cleaning and preprocessing.
+Feature selection/engineering.
+Model selection (choose algorithm).
+Training (fit model to training data).
+Evaluation (check performance on unseen data).
+Deployment (use model in real system).
+Email spam detection.
+Recommendation systems (YouTube, Netflix).
+Medical diagnosis and fraud detection.
+​
+ML = learning from data, not hard-coded logic.
+Success depends strongly on data quality, not just algorithms.
+Think in terms of “input → model → output” rather than “if–else rules”.
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+DAY 2: AI VS ML VS DL
+=====================
+
+KEY IDEAS
+---------
+​
+Artificial Intelligence (AI)
+Broad field : any technique that enables computers to mimic human intelligence (reasoning, planning, learning, perception).
+​
+Includes rule-based systems, search, planning, expert systems, ML, etc.
+(ML) -> Subset of AI focused specifically on learning from data.
+Model discovers patterns and relationships automatically.
+(DL) -> Subset of ML using neural networks with many layers (deep architectures).
+Especially good for images, audio, text, where raw features are complex.
+DL ⊂ ML ⊂ AI.
+Not every AI system uses ML; not every ML system uses deep learning.
+When to use what :
+Rule-based AI: clear rules, low complexity.
+ML : structured/tabular data, moderate complexity.
+DL : large amounts of data (images, audio, text) + higher computation budget.
+Don’t call everything “AI”; be precise: ML vs DL vs rule-based.
+Deep Learning doesn’t replace ML; it’s a powerful specialization.
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+DAY 3: TYPES OF MACHINE LEARNING
+================================
+
+KEY IDEAS
+---------
+​
+1. ### Supervised Learning
+Definition: model learns from labeled data (input X, known output y).
+Goal: learn mapping
+f : X → y
+f : X → y to predict y for new X.
+Regression : predict a continuous value (house price, salary).
+Classification : predict a discrete category (spam/ham, disease/no disease).
+​
+
+2\. UNSUPERVISED LEARNING
+-------------------------
+Definition : model learns structure in unlabeled data (only X, no y).
+Goals:
+Clustering (group similar points).
+Dimensionality reduction (compress features).
+Examples: customer segmentation, grouping documents.
+
+3\. SEMI-SUPERVISED LEARNING
+----------------------------
+Mix of small labeled data + large unlabeled data.
+Useful when labeling is expensive but raw data is abundant.
+
+4\. REINFORCEMENT LEARNING
+--------------------------
+Agent interacts with environment, gets rewards, and learns a policy to maximize cumulative reward.
+​
+Examples: game-playing agents, robotics, recommendation strategy.
+Supervised: “I have answers; learn to mimic them.”
+Unsupervised: “No answers; find patterns.”
+RL: “Learn by trial-and-error with rewards.”
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+DAY 4: ML WORKFLOW / PIPELINE OVERVIEW​
+=======================================
+
+KEY IDEAS
+---------
+Overall pipeline steps
+Problem definition : what are we trying to predict and why.
+1. Data collection: from files, databases, APIs, etc.
+2. Data cleaning and preprocessing.
+3. Train–test (and possibly validation) split.
+4. Model training.
+5. Model evaluation.
+6. Model deployment + monitoring.
+7. Data preprocessing highlights
+8. Handling missing values (drop vs impute).
+9. Fixing outliers when necessary.
+10. Encoding categorical variables.
+11. Feature scaling when required.
+12. Split strategy
+13. Train set: used to fit model.
+14. Test set: held out to measure generalization.
+15. Sometimes validation set for tuning hyperparameters.
+
+ALWAYS THINK IN TERMS OF A SYSTEM : **DATA** → **PROCESSING** → **MODEL** → **METRIC** → **DECISION**.
+------------------------------------------------------------------------------------------------------
+
+**NOTE : DON’T JUMP TO ALGORITHMS BEFORE UNDERSTANDING THE DATA AND PROBLEM.**
+------------------------------------------------------------------------------
+ML is not just about algorithms; the pipeline and data handling are just as important.
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+DAY 5: BASIC MATH / PREREQUISITES (LINEAR ALGEBRA FOCUS)​
+=========================================================
+
+KEY IDEAS
+---------
+
+## OBJECTS
+----------
+Scalar  : single number.
+Vector : 1D array of numbers (features for one sample).
+Matrix : 2D array of numbers (dataset: rows = samples, columns = features).
+
+## NOTATION FOR DATASET
+-----------------------
+X : matrix of shape (n\_samples, n\_features).
+y : vector of targets of length n\_samples.
+
+## OPERATIONS USED IN ML
+------------------------
+Vector addition and scalar multiplication.
+Matrix–vector product: used in linear models
+Transpose : used for gradients and normal equations.
+Many ML algorithms can be seen as linear algebra operations:
+Linear regression:
+Gradient descent updates written as vector operations.
+focus on : Shapes (dimensions) of matrices/vectors.
+What happens when you multiply them.
+How models operate on entire batches using matrix operations.
+
+DAY 6: BASIC MATH / PREREQUISITES (STATISTICS / PROBABILITY INTRO)
+==================================================================
+
+KEY IDEAS
+---------
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+MEAN : AVERAGE VALUE OF A FEATURE.
+----------------------------------
+
+MEDIAN : MIDDLE VALUE (ROBUST TO OUTLIERS).
+-------------------------------------------
+
+MODE : MOST FREQUENT VALUE.
+---------------------------
+
+VARIANCE AND STANDARD DEVIATION : SPREAD OF DATA.
+-------------------------------------------------
+
+## DISTRIBUTIONS (HIGH LEVEL)
+-----------------------------
+1. Normal distribution : bell curve, symmetric around mean.
+2. Skewed distributions: long tail on one side (common in real data).
+  • Why stats matter for ML**
+1. Helps understand data (EDA).
+2. Helps choose transformations (log, scaling, etc.).
+3. Helps interpret model assumptions (e.g., linear regression).
+3. Probability basics
+4. Event, probability of an event.

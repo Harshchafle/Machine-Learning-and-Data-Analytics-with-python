@@ -1,0 +1,8 @@
+5 Key Understandings :
+
+L = Sum(yi - y_hat)^2 + (Lambda * ||w||^2)
+--> shrinkage coef. added reduces overfitting
+
+1. How the coefficients get affected?
+->  if lambda = 0 -> simple linear regression
+    as lambda increases from 0 -> inf , w(coef_) decreases but not zero

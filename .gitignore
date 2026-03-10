@@ -1,0 +1,5 @@
+__datasets__/
+*.csv
+*.pdf
+data/
+datasets/

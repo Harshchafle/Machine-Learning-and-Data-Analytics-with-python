@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Greet - Flask Demo</title>
+    <style>
+        body {
+            font-family: Arial;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        form {
+            margin: 20px 0;
+        }
+
+        input {
+            padding: 8px;
+            margin: 5px;
+        }
+
+        button {
+            padding: 8px 15px;
+            background: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Enter Your Name</h1>
+    <form method="POST">
+        <input type="text" name="name" placeholder="Your name" required>
+        <button type="submit">Submit</button>
+    </form>
+    <p><a href="/">Go back home</a></p>
+</body>
+
+</html>

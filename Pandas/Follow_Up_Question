@@ -1,0 +1,36 @@
+## Problem: Accepted Candidates From the Interview
+
+A company is looking for experienced candidates. An interview process consists of two rounds. A candidate is considered accepted if their score is greater than 15 in both rounds.
+Write a solution to find the IDs of all candidates who are accepted.
+
+Table Schemas & Data:
+
+Candidates table:
+| candidate_id | name |
+| --- | --- |
+| 101 | Kael |
+| 102 | Mirana |
+| 103 | Puck |
+| 104 | Lina |
+
+Rounds table:
+| interview_id | candidate_id | round_number | score |
+| --- | --- | --- | --- |
+| 1 | 101 | 1 | 18 |
+| 2 | 101 | 2 | 25 |
+| 3 | 102 | 1 | 19 |
+| 4 | 102 | 2 | 12 |
+| 5 | 103 | 1 | 20 |
+| 6 | 104 | 1 | 8 |
+| 7 | 104 | 2 | 9 |
+
+Expected Output:
+[101]
+
+Solution : 
+import pandas as pd
+def accepted_candidates(candidates: pd.DataFrame, rounds: pd.DataFrame) -> pd.DataFrame:
+    passed_rounds = Rounds[Rounds['score'] > 15]
+    candidate_counts = passed_rounds.groupby('candidate_id').size()
+    accepted_candidates = candidate_counts[candidate_counts['candidate_counts'] == 2]
+    return accepted_candidates

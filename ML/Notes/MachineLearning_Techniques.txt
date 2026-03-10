@@ -1,0 +1,1419 @@
+************* 100 Days of Machine Learning – CampusX **************
+
+DAY 1: WHAT IS MACHINE LEARNING?
+
+Machine Learning is about building programs that learn patterns from data instead of being explicitly programmed with rules.
+​
+A typical ML system :  input data → learning algorithm → model → predictions/decisions.
+How ML differs from traditional programming
+Traditional :  programmer writes rules + data → outputs.
+ML : programmer supplies data + outputs (labels) → algorithm learns the rules (model).
+​
+Useful when rules are too complex or unknown (e.g., image recognition, speech).
+Typical ML workflow (high-level mental model)
+Data collection.
+Data cleaning and preprocessing.
+Feature selection/engineering.
+Model selection (choose algorithm).
+Training (fit model to training data).
+Evaluation (check performance on unseen data).
+Deployment (use model in real system).
+Email spam detection.
+Recommendation systems (YouTube, Netflix).
+Medical diagnosis and fraud detection.
+​
+ML = learning from data, not hard-coded logic.
+Success depends strongly on data quality, not just algorithms.
+Think in terms of “input → model → output” rather than “if–else rules”.
+____________________________________________________________________________________________________________________________________________________________
+
+DAY 2: AI VS ML VS DL
+​
+Artificial Intelligence (AI)
+Broad field : any technique that enables computers to mimic human intelligence (reasoning, planning, learning, perception).
+​
+Includes rule-based systems, search, planning, expert systems, ML, etc.
+
+(ML) -> Subset of AI focused specifically on learning from data.
+ 	Model discovers patterns and relationships automatically.
+(DL) -> Subset of ML using neural networks with many layers (deep architectures).
+Especially good for images, audio, text, where raw features are complex.
+
+DL ⊂ ML ⊂ AI.
+
+Not every AI system uses ML; not every ML system uses deep learning.
+
+When to use what :
+Rule-based AI: clear rules, low complexity.
+ML : structured/tabular data, moderate complexity.
+DL : large amounts of data (images, audio, text) + higher computation budget.
+
+Don’t call everything “AI”; be precise: ML vs DL vs rule-based.
+Deep Learning doesn’t replace ML; it’s a powerful specialization.
+____________________________________________________________________________________________________________________________________________________________
+
+DAY 3: TYPES OF MACHINE LEARNING
+​
+1. Supervised Learning
+Definition: model learns from labeled data (input X, known output y).
+Goal: learn mapping
+f : X → y
+f : X → y to predict y for new X.
+Regression : predict a continuous value (house price, salary).
+Classification : predict a discrete category (spam/ham, disease/no disease).
+​
+
+2. UNSUPERVISED LEARNING
+Definition : model learns structure in unlabeled data (only X, no y).
+Goals:
+Clustering (group similar points).
+Dimensionality reduction (compress features).
+Examples: customer segmentation, grouping documents.
+
+3. SEMI-SUPERVISED LEARNING
+Mix of small labeled data + large unlabeled data.
+Useful when labeling is expensive but raw data is abundant.
+
+4. REINFORCEMENT LEARNING
+Agent interacts with environment, gets rewards, and learns a policy to maximize cumulative reward.
+​
+Examples: game-playing agents, robotics, recommendation strategy.
+
+Supervised: “I have answers; learn to mimic them.”
+Unsupervised: “No answers; find patterns.”
+RL: “Learn by trial-and-error with rewards.”
+
+____________________________________________________________________________________________________________________________________________________________
+
+DAY 4: ML WORKFLOW / PIPELINE OVERVIEW​
+
+Overall pipeline steps
+Problem definition : what are we trying to predict and why.
+1. Data collection: from files, databases, APIs, etc.
+2. Data cleaning and preprocessing.
+3. Train–test (and possibly validation) split.
+4. Model training.
+5. Model evaluation.
+6. Model deployment + monitoring.
+7. Data preprocessing highlights
+8. Handling missing values (drop vs impute).
+9. Fixing outliers when necessary.
+10. Encoding categorical variables.
+11. Feature scaling when required.
+12. Split strategy
+13. Train set: used to fit model.
+14. Test set: held out to measure generalization.
+15. Sometimes validation set for tuning hyperparameters.
+
+ALWAYS THINK IN TERMS OF A SYSTEM : **DATA** → **PROCESSING** → **MODEL** → **METRIC** → **DECISION**.
+
+NOTE : DON’T JUMP TO ALGORITHMS BEFORE UNDERSTANDING THE DATA AND PROBLEM.
+ 	   ML is not just about algorithms; the pipeline and data handling are just as important.
+____________________________________________________________________________________________________________________________________________________________
+
+DAY 5: BASIC MATH / PREREQUISITES (LINEAR ALGEBRA FOCUS)​
+
+OBJECTS
+Scalar  : single number.
+Vector : 1D array of numbers (features for one sample).
+Matrix : 2D array of numbers (dataset: rows = samples, columns = features).
+
+X : matrix of shape (n_samples, n_features).
+y : vector of targets of length n_samples.
+
+OPERATIONS USED IN ML
+Vector addition and scalar multiplication.
+Matrix–vector product: used in linear models
+Transpose : used for gradients and normal equations.
+Many ML algorithms can be seen as linear algebra operations:
+Linear regression:
+Gradient descent updates written as vector operations.
+focus on : Shapes (dimensions) of matrices/vectors.
+What happens when you multiply them.
+How models operate on entire batches using matrix operations.
+
+Batch Learning
+Online Learning
+
+____________________________________________________________________________________________________________________________________________________________
+
+DAY 6: BASIC MATH / PREREQUISITES (STATISTICS / PROBABILITY INTRO)
+
+MEAN : AVERAGE VALUE OF A FEATURE
+MEDIAN : MIDDLE VALUE (ROBUST TO OUTLIERS).
+MODE : MOST FREQUENT VALUE.
+VARIANCE AND STANDARD DEVIATION : SPREAD OF DATA.
+
+DISTRIBUTIONS (HIGH LEVEL)
+ 	1. Normal distribution : bell curve, symmetric around mean.
+ 	2. Skewed distributions: long tail on one side (common in real data).
+
+Why stats matter for ML
+ 	1. Helps understand data (EDA).
+ 	2. Helps choose transformations (log, scaling, etc.).
+ 	3. Helps interpret model assumptions (e.g., linear regression).
+ 	4. Probability basics
+ 	5. Event, probability of an event.
+
+Insance Based learning
+---
+Model Based Learning
+____________________________________________________________________________________________________________________________________________________________
+
+Day 7 : Challenges in ML
+
+Data Collection
+ 	1. Fetch from API
+ 	2. Web Scraping
+
+2. Insufficient Data / Labelled Data
+ 	Unneccessary effictiveness : The algorithm which is not good can perform good if we train it for large variation of data rather than the best algo on less data.
+
+3. Non Representative Data
+ 	Sampling Noise / Sampling Bias : Wrong Model fitting if we used less data for training and if more data is added then it might happen that the model shoul fit differently to get predictions correct.
+
+
+4. Poor Quality Data
+ 
+5. Irrelevant Features
+ 	Feature Engineering( Splitting or Combining features )
+
+6. Overfitting
+ 	Memorization
+Bad result on testing only
+
+7. Underfitting
+ 	Bad result on training and testing
+
+8. Software Integration
+
+9. Offline Learning
+
+10. Cost Involved
+
+____________________________________________________________________________________________________________________________________________________________
+
+Day 8 : Applications ML
+
+Retail - Amazon / Big-Bazar
+ 	Tag Line : "If you are not paying for the product, then you are the product".
+
+
+2. Banking And Finance
+ 	To match the person to whom provide loan or not.
+ 
+
+3. Transport - OLA
+ 	Demand and Supply
+
+4. Manufacturing - TESLA
+
+
+5. Consumer - Internet - Twitter
+
+
+____________________________________________________________________________________________________________________________________________________________
+
+Day 9 : MLDL Lifecycles
+
+Frame the Problem.
+Gather the Data.
+Data Preprocessing.
+Exploratory Data Analysis.
+Feature Engineering and Selection.
+Model Training, Evaluation and Selection.
+Model Deployment.
+Testing.
+Optimize.
+
+____________________________________________________________________________________________________________________________________________________________
+
+Day 10 : Job Roles
+
+ 	DE, DA, DS
+ 	Website for Job : AngelList (https://wellfound.com/)
+
+1. Data Engineer
+
+Scrape Data from the given sources.
+Move/Store the data in optimal servers/warehouses.
+Build data pipelines/APIs for easy access to thedata.
+Handle databases/data warehouses.
+
+Skills Required
+Strong grasp of algorithms and data structures
+Programming Languages (Java/R/Python/Scala) and script writing
+Advanced DBMS's
+BIG DATA Tools (Apache Spark, Hadoop, Apache, Kafka, Apache Hive)
+Cloud Platforms (Amazon Web Services, Google Cloud Platform)
+Distributed Systems
+Data Pipelines
+
+2. Data Analyst
+
+Responsibilities of a Data Analyst
+
+· Cleaning and organizing Raw data.
+· Analyzing data to derive insights.
+· Creating data visualizations.
+· Producing and maintaining reports.
+· Collaborating with teams/colleagues based on the
+insight gained.
+· Optimizing data collection procedures
+
+Skills
+
+· Statistical Programming
+· Programming Languages (R/SAS/Python)
+· Creative and Analytical Thinking
+· Business Acumen - Medium to High preferred
+· Strong Communication Skills.
+· Data Mining, Cleaning, and Munging
+· Data Visualization
+· Data Story Telling
+· SQL
+· Advanced Microsoft Excel
+
+3. Data Scientist
+
+"A data scientist is someone who is better at statistics than any software engineer and better at software engineering than any statistician".
+
+
+4. ML Engineer
+
+Responsibilities
+
+· Deploying machine learning models to production ready environment
+· Scaling and optimizing the model for production
+· Monitoring and maintenance of deployed models
+
+Skills
+
+. Mathematics
+· Programming Languages (R/Python/Java/Scala mainly)
+. Distributed Systems
+. Data model and evaluation
+· Machine Learning models
+· Software Engineering & Systems design
+
+____________________________________________________________________________________________________________________________________________________________
+
+Day 11 : Tensors
+
+Data Structure to store data.
+0D - Tensor : Scalar
+1D - Tensor : Vector
+2D - Tensor : Matrix
+ND - Tensors
+Rank, Axes, Shapes
+3D - Tensor (NLP vectorization)
+4D - Tensor (Image Processing)
+5D - Tensor (Video Processing)
+
+____________________________________________________________________________________________________________________________________________________________
+
+Day 12 : Anaconda, Google colab, Kaggle, Spyder
+____________________________________________________________________________________________________________________________________________________________
+
+Day 13 : End - to - End Toy Project
+
+Steps :
+ 	0. Preprocessing + EDA + feature selection
+ 	1. Extract input and output columns
+ 	2. Scale the values
+ 	3. train_test_split
+ 	4. train model
+ 	5. evaluate model / model selection
+ 	6. Deploy model
+
+Load Data
+import numpy as np
+import pandas as pd
+df = pd.read_csv('file_path.csv')
+df.head()
+df.shape
+df = df.iloc[:, 1:]
+
+Visualize data
+import matplotlib.pyplot as plt
+plt.scatter(df['cgpa'], df['iq'], c = df['placement'])
+
+Input, output extraction
+X = df.iloc[:, 0:2]
+y = df.iloc(:, -1]
+
+Splitting of data for training and testing
+from sklearn.model_selection import train_test_split
+X_train, y_train, X_test, y_test = train_test_split(X_train, y_train, test_size = 0.1)
+
+Scaling values
+from sklearn.preprocessing import StandardScaler
+scaler = StandardScaler()
+X_train = scaler.fit_transform(X_train)
+X_test = scaler.fit_transform(X_test)
+
+Model training
+from sklearn.linear_model import LogisticRegression
+clf.fit(X_train, y_train)
+
+y_pred = clf.predict(X_test)
+
+Evaluation of model
+from sklearn.metrics import accuracy_score
+acccuracy = accuracy_score(y_pred, y_test)
+
+Visualize decision boundaries
+from mlxtend.plotting import plot_decision_regions
+plot_decision_regions((X_train, y_train.values, clf = clf, legend = 2)
+
+make model pickle file
+import pickle
+pickle.dump(clf, open('model.pkl', 'wb'))
+
+then it will be integrated with website and deployed through GCP, AWS, VERCEL,etc
+
+____________________________________________________________________________________________________________________________________________________________
+
+Day 14 : framing ML problem
+
+
+Business problem to ML problem
+2. Type of problem
+3. Current Solutions
+4. Getting Data
+5. Metrics to measure
+6. Online VS Batch learning
+7. Check Assumptions
+
+____________________________________________________________________________________________________________________________________________________________
+
+Day 15, 16 : Working with csv, json, sql files
+
+Gathering data :
+ 	1. CSV
+ 	2. json / sql
+ 	3. fetch API
+ 	4. Webscraping
+
+CSV :
+ 	The CSV file format is a popular format supported by many machine learning frameworks. The format is variously referred to "comma-separated values" or "character-separated values."
+ 	A CSV file stores tabular data (numbers and text) in plain text form. A CSV file consists of any number of records, separated by line breaks of some kind. Each record consists of fields, separated by a literal comma. In some regions, the separator might be a semi-colon.
+ 	Typically, all records have an identical number of fields, and missing values are represented as nulls or empty strings. There are a number of ways to load a CSV file in Python.
+learnt params of pd.read_csv()
+
+json :
+JavaScript Object Notation (JSON) is a standard text-based format for representing structured data based on JavaScript object syntax. JSON is a lightweight data format used for data interchange between multiple different languages. It is easy to read for humans and easily parsed by machines. It's pretty common for websites to return JSON from API's so that the information is easy to parse by different programming languages.
+SQL(Structured Query Language) is used to manage relational databases, and It is used to perform fetching rows, database creation, modifying databases, deleting databases, and also reading, writing data. It is extremely useful in managing structured data, i.e. data that is used to represent relations among entities and variables. SQL is predicated on relational algebra and tuple relational calculus. MS Access, MySQL is a standard database language.
+____________________________________________________________________________________________________________________________________________________________
+
+Day 17 : Fetching data from an API
+
+What is API?
+ 	Application Programming Interface : helps to communicate  two softwares.
+ 	It is a Data Pipeline.
+
+
+____________________________________________________________________________________________________________________________________________________________
+
+Day 18 : Web Scraping
+
+Web scraping cannot be done on online anaconda cause anaconda notebooks do not make us navigate to other website.
+So due to the inability of reaching out to server, the request do not ever received by server thats why we not get any response in back and got 403 error.
+
+import pandas as pd
+import requests
+from bs4 import BeautifulSoup
+
+headers = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+    "Accept-Language": "en-US,en;q=0.9",
+    "Connection": "keep-alive"
+}
+
+proxies = {
+    "http": None,
+    "https": None
+}
+
+url = 'https://www.ambitionbox.com/list-of-companies?page=1'
+
+response = requests.get(url, headers=headers, proxies=proxies, timeout=10.
+print(response.status_code)
+
+____________________________________________________________________________________________________________________________________________________________
+
+Day 19 : Understanding Data
+
+How Bi the Data is? -> df.shape
+2. How does Data look like? -> df.head(5), df.sample(5)
+3. What datatype the cols have? -> df.info()
+4. Are there any Missing values? -> df.isnull().sum()
+5. How does Data looks Mathematically? -> df.describe()
+6. Are there any duplicate values? -> df.duplicated().sum()
+7. How the correlation between cols? -> df.corr()
+
+____________________________________________________________________________________________________________________________________________________________
+
+Day 20 : EDA (Univariate Analysis)
+
+Independent Analysis of the single variable (column) is called as Univariate analysis.
+
+Types of data :
+ 	1. Numerical Data
+ 	2. Categorical Data
+
+Categorical Data :
+ 	1. Countplot
+ 	2. PieChart
+Numerical Data :
+ 	1. Histogram
+ 	2. Distplot
+ 	3. Boxplot -> Interquartile Ranges, Outliers, etc
+
+____________________________________________________________________________________________________________________________________________________________
+
+Day 21 : EDA (Bivariate Analysis)
+
+Analysis of the two variable (column) is called as Bivariate analysis.
+
+** Documentation left**
+____________________________________________________________________________________________________________________________________________________________
+
+Day 22 : Pandas Profiling
+
+Pandas Profiling is a powerful tool for exploratory data analysis, providing a comprehensive summary and visualization of the dataset using the Pandas library.
+____________________________________________________________________________________________________________________________________________________________
+
+Day 23 : Feature Engineering
+
+Feature engineering is the process of using domain knowledge to extract features from raw
+data. These features can be used to improve the performance of machine learning algorithms.
+
+
+Feature Engineering:
+Feature Transformation
+ 	1. Missing Value Imputation
+ 	2. Handling Categorical Feature
+ 	3. Outlier Detection
+ 	4. Feature Scaling
+2. Feature Construction
+3. Feature Selection
+4. Feature Extraction
+
+____________________________________________________________________________________________________________________________________________________________
+
+Day 24 : Feature Scaling
+
+Feature Scaling is a technique to standardize the independent features present in the data in a fixed range.
+
+Why do we need Feature Scaling?
+Types of Feature Scaling : (1) Standardization (Z-Score Normalization), (2) Normalization
+
+(1) Standardization (Z-Score Normalization) : Centers mean (mean = 0) and takes data such that (stdev = 1)
+ 	use : (xi - mean(x))/stdev -> new Col
+
+{
+from sklearn.preprocessing import StandardScaler
+scaler = StandardScaler()
+
+scaler.fit(X_train)   # learn from train and transform both
+
+X_train_scaled = scaler.transform(X_train)
+X_test_scaled = scaler.transform(X_test)
+}
+
+Impact of Outliers : Outliers behaves same before and after scaling.
+
+When to use standardization?
+----------------------------------------------------------------------------------------------------------------------------------------------------
+Algorithm(s)						Reason of applying feature scaling
+
+1. K-Means											Use the Euclidean distance measure.
+
+2. K-Nearest-Neighbours								Measure the distances between pairs of samples and these distances are influenced by the measurement units
+
+3. Principal Component Analysis (PCA)				Try to get the feature with maximum variance
+
+4. Artificial Neural Network							Apply Gradient Descent
+
+5. Gradient Descent									Theta calculation becomes faster after feature scaling and the learning rate in the update equation of Stochastic Gradient Descent is the same for every parameter
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+____________________________________________________________________________________________________________________________________________________________
+
+Day 25 : Normalization
+
+Normalization is a technique often applied as part of data preparation for machine learning. The goal of normalization is to change the values of numeric columns in the dataset to use a common scale , without distorting differences in the ranges of value or 	losing information.
+
+Types :
+ 	1. Min Max Scaling
+ 	2. Mean Normalization
+ 	3. Max absolute
+ 	4. Robust Scaling
+
+
+MinMax Scaling => Xi' -> (Xi - Xmin)/(Xmax - Xmin)
+
+{
+from sklearn.preprocessing import MinMaxScaler
+scaler = MinMaxScaler()
+
+# fit the scaler on training data, it will learn  the parameters
+scaler.fit(X_train)
+
+# transform train, test sets
+X_train_scaled = scaler.fit_transform(X_train)
+X_test_scaled = scaler.fit_transform(X_test)
+}
+
+2. Mean Normalization => Xi' -> (Xi - Xmeam) / (Xmax - Xmin)
+
+
+3. Max Absolute => Xi' -> Xi / | Xmax |
+use it for sparse data or if data have frequent 0's
+{
+from sklearn.preprocessing import MaxAbsScaler
+scaler = MinMaxScaler()
+
+# fit the scaler on training data, it will learn  the parameters
+scaler.fit(X_train)
+
+# transform train, test sets
+X_train_scaled = scaler.fit_transform(X_train)
+X_test_scaled = scaler.fit_transform(X_test)
+}
+
+
+4. Robust Scaler => Xi' -> (Xi - Xmedian)/ IQR
+if lot of outliers are there in the data
+{
+from sklearn.preprocessing import RobustScaler
+scaler = MinMaxScaler()
+
+# fit the scaler on training data, it will learn  the parameters
+scaler.fit(X_train)
+
+# transform train, test sets
+X_train_scaled = scaler.fit_transform(X_train)
+X_test_scaled = scaler.fit_transform(X_test)
+}
+
+____________________________________________________________________________________________________________________________________________________________
+
+Day 26 : Encoding Categorical data
+
+Categorical Data -> 1. Nominal (not comparable categories) - one hot encoding
+ 			       -> 2. Ordinal (comparable categories like (Excellent, Good, Average, Poor)) - Ordinal Encoding
+
+
+What is Label Encoder?
+if the output column in Categorical then use label encoder on it.
+
+ordinal Encoding
+ 	input values can be encoded
+from sklearn.preprocessing import OrdinalEncoder
+oe = OrdinalEncoder(categories=[['Poor', 'Average', 'Good'],['School', 'UG', 'PG']])
+oe.fit(X_train)
+X_train = oe.transform(X_train)
+X_test = oe.transform(X_test)
+
+2. label Encoding
+ 	only for target class df[-1]
+from sklearn.preprocessing import LabelEncoder # le is only for target class not for inputs
+le = LabelEncoder()
+le.classes_
+y_train = le.transform(y_train)
+y_test = le.transform(y_test)
+
+
+____________________________________________________________________________________________________________________________________________________________
+
+Day 27 : One Hot Encoding
+
+makes String -> Vectors by Vectorization
+
+
+Dummy Variable Trap -> Problem of multicollinearity
+ 
+ 	what is multi collinearity? -> there should ne correlation between inputs they should be independent thats why they are selected as the independent input variables.
+
+in one hot encoding we can have only n-1 columns, that 1 column which is being removed is called dummy variable.
+dummy variable id unnecessarily there in data.
+
+
+____________________________________________________________________________________________________________________________________________________________
+
+Day 28 : Column transformer
+
+Suppose we have a dataset in which we have to apply ordinal encoding, one hot encoding and simple encoding then we will get the separate arrays for each on the encoding then we have to combine all the arrays to a single array, this is too hectic. That's why we are doing column transform.
+
+from sklearn.compose import ColumnTransformer
+
+transformer = ColumnTransformer(
+    transformers = [
+        ('tnf1', SimpleImputer(), ['fever']),
+        ('tnf2', OrdinalEncoder(categories=[['Mild', 'Strong']]), ['cough']),
+        ('tnf3', OneHotEncoder(sparse=False, drop='first'), ['gender', 'city'])
+    ],
+    remainder='passthrough'
+)
+
+transformer.fit_transform(X_train).shape
+transformer.transform(X_test).shape
+
+____________________________________________________________________________________________________________________________________________________________
+
+Day 29 : ML Pipelines
+
+Pipeline chains together multiple steps such that the output of one step becomes the input for next step.
+Pipeline makes it easy to apply the same preprocessing to train and test.
+
+Without pipeline Steps :
+train test split
+Applying Imputation -> filling missing values
+check the categorical features and encode them with OneHotEncoder
+one hot encoding
+concatenate all the columns which will be there in the training and testing
+take the model and fit it on training dataset
+predict the values on testing dataset
+measure the accuracy score
+
+Pipeline Plan :
+ 	// folder dekhke baad me likhluna
+
+
+
+____________________________________________________________________________________________________________________________________________________________
+
+Day 30 : Function Transformer
+
+
+Feature Engineering
+ 	Feature Transformation
+ 		Mathematical Transformations
+ 			   1. Log Transform
+ 			   2. Reciprocal Transform
+ 			   3. Power Transform
+ 			   4. Box-Cox Transform
+ 			   5. Yeo Johnson Transform
+
+WHY WE DO TRANSFORMATION?
+
+sklearn:
+ 	1. Functional Transformer (log, reciprocal, sq/sqrt, custom)
+ 	2. Power Transformer (box-cox, yeo johnson)
+
+
+How to find if data is normally distributed or not?
+ 	-> sns.distplot(data=df)
+ 	-> pd.skew() = 0
+ 	-> QQPlot
+
+
+Log transform : log(x)
+ 	when to use log transform?
+ 		- Data is right skewed then apply log transform it makes data to normal distribution.
+ 		- By applying this, linear models performance improves.
+
+
+Reciprocal transform : 1 / x
+
+Square transform : x^2	-> apply on left skewed data
+
+SquareRoot transform : sqrt(x)
+
+Example on titanic dataset (age, fare, survived)
+
+def apply_transform(transform):
+    **X = df.iloc\[:, 1:3]**
+    \*\*y = df.iloc\\\[:, 0]\*\*
+
+    \\\*\\\*trf = ColumnTransformer(\\\\\\\[('log', FunctionTransformer(transform), \\\\\\\['Fare'])], remainder='passthrough')\\\*\\\*
+
+    \\\\\\\*\\\\\\\*X\\\\\\\\\\\\\\\_trans = trf.fit\\\\\\\\\\\\\\\_transform(X)\\\\\\\*\\\\\\\*
+
+    \\\\\\\\\\\\\\\*\\\\\\\\\\\\\\\*clf = DecisionTreeClassifier()\\\\\\\\\\\\\\\*\\\\\\\\\\\\\\\*
+
+    \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*print('Accuracy', np.mean(cross\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\_val\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\_score(clf, X\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\_trans, y, scoring='accuracy', cv=10)))\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*
+
+    \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*plt.figure(figsize=(14,4))\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*
+
+
+
+    \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*plt.subplot(121)\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*
+
+    \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*stats.probplot(X\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\['Fare'], dist='norm', plot=plt)\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*
+
+    \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*plt.title('Fare before transform')\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*
+
+
+
+    \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*plt.subplot(122)\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*
+
+    \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*stats.probplot(X\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\_trans\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\[:,0], dist='norm', plot=plt)\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*
+
+    \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*plt.title('Fare After transform')\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*
+
+
+
+    \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*plt.show()\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+____________________________________________________________________________________________________________________________________________________________
+
+Day 31 : Power Transformer
+
+Box-Cox transformer
+
+xi^k = {	(xi-1)/k, if(k != 0)
+ 		ln(xi), 	if(k = 0)
+}
+
+The exponent here is a variable called lambda (A) that
+varies over the range of -5 to 5, and in the process of
+searching, we examine all values of A. Finally, we choose
+the optimal value (resulting in the best approximation to a
+normal distribution) for your variable.
+
+limitation : xi > 0
+
+thats why we need yeo johnson
+
+yeo johnson transformer
+
+xi^k = {
+ 	case 1 : if(k != 0 && xi >= 0)
+ 	case 2 : if(k == 0 && xi >= 0)
+ 	case 3 : if(k != 2 && xi < 0)
+ 	case 4 : if(k == 2 && xi < 0)
+}
+
+This transformation is somewhat of an adjustment to the
+Box-Cox transformation, by which we can apply it to
+negative numbers.
+
+____________________________________________________________________________________________________________________________________________________________
+
+Day 32 : Binning and Binarization / Discretization / Quantile Binning / KMeans Binning
+
+
+Encoding Numerical feature -> categorical {Binarization / Discretization}
+
+ 	1. Discretization : Discretization is the process of transforming continuous variables into discrete
+ 					variables by creating a set of contiguous intervals that span the range of the
+ 					variable's values. Discretization is also called binning, where bin is an alternative
+ 					name for interval.
+
+ 	**Why Discretization?**
+
+ 		1.	To handle Outliers
+ 		2. 	To improve the value spread
+ 
+ 		Types :
+ 		1.	Unsupervised Binning
+ 		2. 	Supervised Binning
+ 		3. 	Custom Binning
+
+Equal width / Uniform Binning -> 	(Max - Min) / bins
+
+2.   Equal frequency / Quantile Binning ->  each interval contains bins% of total observations
+
+3.   KMeans Binning -> 	bins number of clusters formed
+
+from sklearn import KBinsDiscretize(bins=?, strategy=['uniform','quantile','kmeans'], encoding=['ordinal','ohe'])
+
+Example titanic for binning
+
+
+____________________________________________________________________________________________________________________________________________________________
+
+Day 33 : Handling Mixed data
+
+
+
+____________________________________________________________________________________________________________________________________________________________
+
+Day 34 : Handling Date and Time
+
+date['date'].dt :
+ 	.time, .date, .hour, .minute, .second, .month, .year, .day, .dayofweek, .day_name(), .month_name()
+
+
+____________________________________________________________________________________________________________________________________________________________
+
+Day 35, 36, 37 : Handling Missing Data
+
+
+
+
+First way to handle missing values is to REMOVE them.
+Second way is to IMPUTE them. -> univariate, multivariate
+
+UNIVARIATE : 	Using SimpleImputer
+ 				num	 -> 	mean, median, random
+ 				categ	-> 	mode, missing
+MULTIVARIATE :
+ 				KNN imputer
+ 				Iterative imputer
+
+Complete Case Analysis (CCA):
+ 	CCA also called as "list-wise deletion" of cases, consist in discarding  observation where  values  in any  of the variable is missing.
+ 	Complete Case analysis means literally analyzing only those observations for which there is information in all of the variables in the dataset.
+
+Assumptions for CCA :
+ 	1. Data is missing completely Random(MCAR) -> Missing Completely At Random
+ 	Advantages : 	1. Easy to implement as no data manipulation is required.
+ 					2. Preserves variable distribution (if data is MCAR , then the distribution of the variables of the reduced dataset should match the distribution in the original dataset).
+ 	Disadvantages :	1. It can exclude a large fraction of the original dataset (if missing data is abundant)
+ 					2. Excluded Observations could be informative for the analysis (if data is not missing at random)
+ 					3. When using our models in production, the model will not know how to handle missing data.
+
+When to use CCA?
+ 	MCAR, < 5% missing data
+
+Imputations :
+ 	1. Mean and median Imputation : when MCAR and <5% missing data
+ 	2. Arbitrary Value Imputation : filled with any value (NA -> missing) : when data is not missing a random
+ 	3. End of Distribution Imputation : instead of arbitrary value use end of distribution values. IQR proximity rule
+ 	4. for categorical data if data id MCAR or <5% missing use mode (most frequent)
+ 	5. Missing Category Imputation : make different category named (missing)
+
+____________________________________________________________________________________________________________________________________________________________
+
+Day 38 : Missing Indicator | Random Sample Imputation
+
+
+Random Imputation :
+ 	1. Preserves the variance of the variable (but why?)
+ 	2. Memory heavy for deployment , as we need to store the original training set to extract values from and replace the NA in coming observations
+ 	3. Well suited for linear models as it does not distort the distribution, regardless of the % of NA.
+
+Missing Indicaor :
+ 	Make new column and put true and false in it.
+ 	if (null value in original col) then put FALSE else TRUE
+
+Automatically select values for Imputation :
+ 	check in notebook used GridSearchCV
+ 
+
+____________________________________________________________________________________________________________________________________________________________
+
+Day 39 : KNN Imputer | Multivariate Imputation
+
+For a missing value, it would be filled with the values that have in the k nearest neighbours, like example k = 5 then check which for cat which is most frequant and for numerical average it.
+
+checkout NAN_EUCLEDIAN_DISTANCE on scikitlearn
+dist(x,y) = sqrt(weight * sq. distance from present coordinates) where, weight = Total # of coordinates / # of present coordinates
+
+from sklearn.impute import KNNImputer
+knn = KNNImputer() -> add_indicator -> true or false mark krta hai missing hai ki nhi toh
+ 					-> n_neighbours -> kitne neighbours dekhne hai
+
+____________________________________________________________________________________________________________________________________________________________
+
+Day 40 : Multivariate Imputation by Chained Equations for Missing Value | MICE Algorithm | Iterative Imputer
+
+MICE -> Multivariate Imputation by Chained Equations
+
+Assumptions :
+ 	1. MCAR : Missing Completely At Random
+ 	2. MAR : Missing At Random
+ 	3. MNAR : Missing Not At Random
+
+More Accurate but Slow
+
+STEPS :
+ 	1. Fill all the NAN values with mean of respective cols
+ 	2. Remove all col1 missing values
+ 	3. Predict the missing values of col1 using other cols
+ 	4. Remove all col2 missing values
+ 	5. Predict the missing values of col2 using other cols
+ 	6. Remove all col3 missing values
+ 	7. Predict the missing values of col3 using other cols
+
+do it until we get difference almost or near to zero
+
+
+____________________________________________________________________________________________________________________________________________________________
+
+Day 41, 42, 43, 44 : Outliers
+
+
+have bad effect in linear regression, logistic regression, adaboost, deep learning -> based on weights
+
+How to detect outliers?
+
+Normal Distribution
+
+
+2. Skewed Distribution
+
+Interquartile proximity rule
+IQR = Q3 - Q1
+Q2 = Median
+min = Q1 - 1.5*IQR
+max = Q3 + 1.5*IQR
+
+3. Percentile Based
+
+
+Techniques for Outliers Detection and removal
+
+Z-Score increment ( if data is normally distributed)
+IQR based filtering ( if data is skewed)
+Percentile
+Winserization
+
+
+In normal distribution curve,
+{mean - stdev, mean + stdev} - > 68.2%
+{mean - 2*stdev, mean + 2*stdev} - > 95.4%
+{mean - 3*stdev, mean + 3*stdev} - > 99.7%
+
+Z-Score -> Xnewi = (Xi - mean) / stdev
+
+
+outliers treatment -> 1. Trimming    2. Capping
+____________________________________________________________________________________________________________________________________________________________
+
+Day 45 : Feature Construction | Feature Splitting
+
+
+creating the new Feature from existing feature to have a good accuracy based on usecases.
+
+df['Title'] = df['Name'].str.split(',', expand=True)[1].str.split('.', expand=True)[0]
+
+
+____________________________________________________________________________________________________________________________________________________________
+
+Day 46 : Curse of Dimensionality
+
+
+There should be optimal number of features to make the model best fit.
+
+No point of using too less or too high number of features. As the number of feature increases the accuracy decreases.
+
+Images
+Text Data
+
+In Higher Dimension Space : Data got more sparsity, means the distance between two points is more in higher dimension rather than lower one.
+
+Causes : 
+	1. Performance decreases
+	2. Computation increases 
+
+Solution : Dimensionality Reduction
+			1. Feature Selection
+					1. Forward Selection (elimination)
+					2. Backward Selection (elimination)
+			2. Feature Extraction
+					1. PCA
+					2. LDA
+					3. tsw
+
+
+____________________________________________________________________________________________________________________________________________________________
+
+Day 47, 48 : (PCA) | Part 1 | Geometric Intuition
+
+PCA is unsupervised learning problem.
+Complex technique
+Reduces Curse of Dimensionality
+Faster Executes the algorithm
+great for visualization
+
+
+Feature Selection : Checks Data Spread (where it is more) : Data should spread in wide range, use variance or scatterplot to checkout
+
+Feature Extraction : It is like combining two features to derive another meaningful feature helpful in improving model at low features.
+
+PCA makes new set of features by feature selection or feature extraction and chooses the subset which is more important in decision making.
+
+Remember Rotation of Axis to make Principal components and choosing more suitable component where again the variance is more than other principal components.
+Number of PC <= Number of original features in original Data
+
+Var(x) = Summation( Sq(xi - mean(x))) / n
+
+Stdev(x) = Sqrt(Var(x))
+
+
+after rotation the variance of all the projections given as :
+	Var(x, U) = (Summation(sq(Ut.xi - Ut.xm)))/n
+
+Covariance and Covariance matrix : 
+ - covariance gives the relation how x and y are changing with each other -> summatioin(xi*yi)/n
+  	x1	[ Cov(x1, x1)		Cov(x1, x2) ]         		[ Var(x1)	 Cov(x1, x2) 	]
+ 	x2	[ Cov(x2, x1)		Cov(x2, x2) ]            ->       	[ Cov(x2, x1)	 Var(x2)		]	-> Covariance Matrix
+			x1				x2
+
+Note : 	Cov(a, b) = Cov(b, a)
+		Cov(a, a) = Var(a)
+
+Linear Transformation, Eigen Vector and Eigen Values : 
+Geogebra : tool to visualize transformations
+
+The vectors which do not change its direction after applying transformation are called as Eigen vectors and the amount by which their magnitude grows or shrink are called Eigen Values.
+
+A.v = k.v  ....( v = eigen vector, A = transformation, k = Eigen value)
+
+Step-by-Step :	
+	1. mean centering
+	2. find Cov Matrix
+	3. Find Eigen vector, Eigen value (vector having largest eigen value will become principal component 1(pc1) then pc2 then pc3, ...)
+
+How to transform points?
+	dot product with transpose - Ut.x will give scalar.
+
+----------------------------------------------------------------------------------------------------------------
+# Finding Optimum number of Principal Components
+
+Each eigen values explains the variance of components
+Simply : Each eigen value tells that how much variance is explained by it's corresponding eigen vector.
+
+convert it into precentage and take that much principal components untill you get 90 percent by adding pcs.
+
+USE : 
+pca.explained_variance_ratio_
+pca.explained_variance_
+also do : plt.plot(np.cumsum(pca.explained_variance_ratio_) and observe graph
+----------------------------------------------------------------------------------------------------------------
+
+When PCA does not work?
+
+If variance in all the direction are same, like after transformation there is not change in variance (ex : all the data in sphere,  data constant in every dimension)
+losing pattern of higher dimension because after transformation there is projected data so there is loss of patterns.
+
+************************************************************************************************************************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
