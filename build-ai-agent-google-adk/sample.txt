@@ -1,0 +1,9 @@
+pip install uv
+pip install google-adk
+
+load_dotenv()
+
+# 1. first agent will take topic and create structured outline
+
+
+to run: adk web
